@@ -149,7 +149,7 @@ class FlowcellsHandler(SafeHandler):
         if ont_flowcells:
             try:
                 # Use Pandas dataframe for column-wise operations, every db entry becomes a row
-                df = pd.DataFrame.from_dict(ont_flowcells, orient="index")
+                df = pd.DataFrame.from_dict(ont_flowcells, orient="index").astype(str)
 
                 # Empty values are replaced with empty strings
                 df.fillna("", inplace=True)
